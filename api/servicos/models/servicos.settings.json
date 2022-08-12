@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "servicos",
+  "info": {
+    "name": "servicos",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "endereco": {
+      "type": "string",
+      "required": true
+    },
+    "telefone": {
+      "type": "string",
+      "required": true
+    },
+    "descricao": {
+      "type": "text",
+      "required": true
+    },
+    "tipo": {
+      "type": "string",
+      "required": true
+    },
+    "imagem": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "bairro": {
+      "type": "string",
+      "required": true
+    },
+    "contador": {
+      "type": "integer",
+      "default": 0
+    },
+    "user_id": {
+      "via": "servico",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "mensagem": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
